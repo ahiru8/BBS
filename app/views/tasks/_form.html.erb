@@ -1,0 +1,12 @@
+<%= form_for [@project, @task] do |f| %>
+
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+<br>
+  <label>タグ</label>
+	<input id="tag_name" name="tag[name]" size="30" type="text" />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

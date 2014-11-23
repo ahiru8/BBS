@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :tags
+
   resources :projects do
-    resources :tasks, only: [:create, :destroy]
+    resources :tasks, only: [:create, :destroy, :new, :edit, :update]
   end
 
   post '/projects/:project_id/tasks/:id/toggle' => 'tasks#toggle'

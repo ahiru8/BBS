@@ -1,0 +1,16 @@
+<h1>Tags</h1>
+
+<ul>
+	<% @tags.each do |tag| %>
+	<li>
+		<% if tag.name %>
+		<%= link_to tag.name, tag_path(tag.id) %>
+		<%= link_to "[Edit]", edit_tag_path(tag.id) %>
+		<%= link_to "[Delete]", tag_path(tag.id), method: :delete, data: {confirm: "are you sure?" } %>
+		<% end %>
+
+	</li>
+	<% end %>
+</ul>
+
+<p><%= link_to "Add New", new_tag_path %></p>
