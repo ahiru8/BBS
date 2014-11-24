@@ -2,9 +2,18 @@
 
   <%= f.label :title %><br>
   <%= f.text_field :title %>
-<br>
-  <label>タグ</label>
-	<input id="tag_name" name="tag[name]" size="30" type="text" />
+
+   <ul>
+    <% @tags.each do |tag| %>
+      <li>
+        <label>
+          <% checked = tag.tasks.exists?(@task.id) ? true : false %>
+          <%= f.check_box 'tag_ids', { :name => 'task[tag_ids][]', :checked => checked }, tag.id, nil %>
+          <%= tag.name %>
+        </label>
+      </li>
+    <% end %>
+    </ul>
 
   <div class="actions">
     <%= f.submit %>
